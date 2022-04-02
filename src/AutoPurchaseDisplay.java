@@ -16,7 +16,7 @@ public class AutoPurchaseDisplay {
         System.out.println("Gas mileage (miles per gallon)?");
         purchase.setAutoMileage(keyboard.nextInt());
         System.out.println("Make and model?");
-        keyboard.nextLine();
+        keyboard.nextLine(); // clear the newline character
         purchase.setAutoMakeModel(keyboard.nextLine().strip());
         System.out.println("Purchase price?");
         purchase.setPurchasePrice(keyboard.nextDouble());
