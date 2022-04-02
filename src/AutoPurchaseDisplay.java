@@ -7,7 +7,8 @@ public class AutoPurchaseDisplay {
         readPurchaseInfo(keyboard, purchase);
         System.out.println();
 
-        System.out.printf("%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
+        System.out.printf(
+                "%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
                 purchase.getAutoMakeModel(), purchase.getAutoMileage(), purchase.getPurchasePrice(),
                 purchase.getInterestRate(), purchase.getLoanMonths());
     }
