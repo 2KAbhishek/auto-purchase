@@ -1,4 +1,8 @@
 class AutoPurchase {
+    public final static double MIN_PURCHASE_PRICE = 1000.0;
+    public final static int MIN_LOAN_MONTHS = 6;
+    public final static double MIN_INTEREST_RATE = 1.0;
+
     private int autoMileage;
     private String autoMakeModel;
     private double purchasePrice;
@@ -6,7 +10,11 @@ class AutoPurchase {
     private double interestRate;
 
     public AutoPurchase() {
-        super();
+        autoMileage = -1;
+        autoMakeModel = "unknown";
+        purchasePrice = MIN_PURCHASE_PRICE;
+        loanMonths = MIN_LOAN_MONTHS;
+        interestRate = MIN_INTEREST_RATE;
     }
 
     public void setAutoMileage(int autoMileage) {
