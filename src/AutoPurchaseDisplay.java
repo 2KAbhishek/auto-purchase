@@ -2,25 +2,33 @@ import java.util.Scanner;
 
 public class AutoPurchaseDisplay {
     public static void main(String[] args) {
-        System.out.println("AutoPurchaseDisplay.main()");
+        Scanner keyboard = new Scanner(System.in);
+        AutoPurchase purchase = new AutoPurchase();
+        readPurchaseInfo(keyboard, purchase);
+        System.out.println();
+
+        System.out.printf("%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
+                purchase.getAutoMakeModel(), purchase.getAutoMileage(), purchase.getPurchasePrice(),
+                purchase.getInterestRate(), purchase.getLoanMonths());
     }
 
-    public void readPurchaseInfo(Scanner keyboard, AutoPurchase purchase) {
+    public static void readPurchaseInfo(Scanner keyboard, AutoPurchase purchase) {
         System.out.println("Gas mileage (miles per gallon)?");
         purchase.setAutoMileage(keyboard.nextInt());
         System.out.println("Make and model?");
-        purchase.setAutoMakeModel(keyboard.next());
+        keyboard.nextLine();
+        purchase.setAutoMakeModel(keyboard.nextLine().strip());
         System.out.println("Purchase price?");
         purchase.setPurchasePrice(keyboard.nextDouble());
-        System.out.println("Loan length in months:");
+        System.out.println("Loan length in months?");
         int numLoanMonths = keyboard.nextInt();
         purchase.setLoanMonths(numLoanMonths);
-        purchase.setInterestRate(numLoanMonths);
+        purchase.setInterestRate(determineInterestRate(numLoanMonths));
     }
 
-    public double determineInterestRate(int numLoanMonths) {
+    public static double determineInterestRate(int numLoanMonths) {
         double interestRate = 3.8;
-        while (numLoanMonths > 12) {
+        while (numLoanMonths >= 12) {
             numLoanMonths -= 12;
             interestRate += 0.5;
         }
