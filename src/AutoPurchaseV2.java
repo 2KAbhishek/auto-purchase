@@ -17,6 +17,14 @@ class AutoPurchaseV2 {
         interestRate = MIN_INTEREST_RATE;
     }
 
+    public AutoPurchaseV2(int autoMileage, String autoMakeModel, double purchasePrice, int loanMonths, double interestRate) {
+        this.autoMileage = autoMileage;
+        this.autoMakeModel = autoMakeModel;
+        this.purchasePrice = purchasePrice;
+        this.loanMonths = loanMonths;
+        this.interestRate = interestRate;
+    }
+
     public void setAutoMileage(int autoMileage) {
         this.autoMileage = autoMileage;
     }
