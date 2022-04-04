@@ -1,19 +1,29 @@
 import java.util.Scanner;
 
-public class AutoPurchaseDisplay {
+public class AutoCostAnalyzer {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        AutoPurchase purchase = new AutoPurchase();
-        readPurchaseInfo(keyboard, purchase);
+        System.out.println("Multiple year Auto Cost Analyzer");
         System.out.println();
+
+        System.out.println("Number of years for cost comparison?");
+        int numYears = keyboard.nextInt();
+
+        AutoPurchaseV2 purchase1 = new AutoPurchaseV2();
+        readPurchaseInfo(keyboard, purchase1);
+
+        AutoPurchaseV2 purchase2 = null;
+        purchase2 = createAutoPurchaseObject(keyboard);
 
         System.out.printf(
                 "%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
-                purchase.getAutoMakeModel(), purchase.getAutoMileage(), purchase.getPurchasePrice(),
-                purchase.getInterestRate(), purchase.getLoanMonths());
+                purchase1.getAutoMakeModel(), purchase1.getAutoMileage(), purchase1.getPurchasePrice(),
+                purchase1.getInterestRate(), purchase1.getLoanMonths());
+
+        purchase2.displayPurchaseInfo();
     }
 
-    public static void readPurchaseInfo(Scanner keyboard, AutoPurchase purchase) {
+    public static void readPurchaseInfo(Scanner keyboard, AutoPurchaseV2 purchase) {
         System.out.println("Gas mileage (miles per gallon)?");
         purchase.setAutoMileage(keyboard.nextInt());
         System.out.println("Make and model?");
