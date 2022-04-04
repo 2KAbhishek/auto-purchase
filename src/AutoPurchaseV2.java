@@ -17,7 +17,8 @@ class AutoPurchaseV2 {
         interestRate = MIN_INTEREST_RATE;
     }
 
-    public AutoPurchaseV2(int autoMileage, String autoMakeModel, double purchasePrice, int loanMonths, double interestRate) {
+    public AutoPurchaseV2(int autoMileage, String autoMakeModel, double purchasePrice, int loanMonths,
+            double interestRate) {
         setAutoMileage(autoMileage);
         setAutoMakeModel(autoMakeModel);
         setPurchasePrice(purchasePrice);
@@ -65,5 +66,9 @@ class AutoPurchaseV2 {
         return interestRate;
     }
 
-    public static void
+    public void displayPurchaseInfo() {
+        System.out.printf(
+                "%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
+                getAutoMakeModel(), getAutoMileage(), getPurchasePrice(), getInterestRate(), getLoanMonths());
+    }
 }
