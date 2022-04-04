@@ -18,11 +18,11 @@ class AutoPurchaseV2 {
     }
 
     public AutoPurchaseV2(int autoMileage, String autoMakeModel, double purchasePrice, int loanMonths, double interestRate) {
-        this.autoMileage = autoMileage;
-        this.autoMakeModel = autoMakeModel;
-        this.purchasePrice = purchasePrice;
-        this.loanMonths = loanMonths;
-        this.interestRate = interestRate;
+        setAutoMileage(autoMileage);
+        setAutoMakeModel(autoMakeModel);
+        setPurchasePrice(purchasePrice);
+        setLoanMonths(loanMonths);
+        setInterestRate(interestRate);
     }
 
     public void setAutoMileage(int autoMileage) {
@@ -64,4 +64,6 @@ class AutoPurchaseV2 {
     public double getInterestRate() {
         return interestRate;
     }
+
+    public static void
 }
