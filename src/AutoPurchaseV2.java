@@ -71,4 +71,10 @@ class AutoPurchaseV2 {
                 "%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
                 autoMakeModel, autoMileage, purchasePrice, interestRate, loanMonths);
     }
+
+    public double computeMonthlyPayment() {
+        double monthlyPayment = purchasePrice * (interestRate / 100)
+                / (1 - Math.pow(1 + (interestRate / 100), -loanMonths));
+        return monthlyPayment;
+    }
 }
