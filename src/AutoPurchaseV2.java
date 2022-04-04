@@ -77,4 +77,16 @@ class AutoPurchaseV2 {
                 / (1 - Math.pow(1 + (interestRate / 100), -loanMonths));
         return monthlyPayment;
     }
+
+    public double computeMultipleYearCost(double monthlyPayment, int numYears) {
+        int milesPerYear = 12000;
+        double gasCostPerMile = 3.25;
+        double gasRequired = (milesPerYear / autoMileage) * numYears;
+        double totalGasCost = gasRequired * gasCostPerMile;
+
+        int interestMonths = Math.min(numYears * 12, loanMonths);
+        double loanPayment = monthlyPayment * interestMonths;
+
+        return totalGasCost + loanPayment;
+    }
 }
