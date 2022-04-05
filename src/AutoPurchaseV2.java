@@ -46,7 +46,17 @@ class AutoPurchaseV2 {
     }
 
     public void setLoanMonths(int loanMonths) {
-
+        if (loanMonths < MIN_LOAN_MONTHS) {
+            loanMonths = MIN_LOAN_MONTHS;
+            System.out.println(
+                    "Entered number of loan months is too low, so it was set to the minimum allowable value of "
+                            + MIN_LOAN_MONTHS + " months");
+        } else if (loanMonths > MAX_LOAN_MONTHS) {
+            loanMonths = MAX_LOAN_MONTHS;
+            System.out.println(
+                    "Entered number of loan months value is too high, so it was set to the maximum allowable value of "
+                            + MAX_LOAN_MONTHS);
+        }
         this.loanMonths = loanMonths;
     }
 
