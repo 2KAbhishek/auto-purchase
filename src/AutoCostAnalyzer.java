@@ -9,16 +9,16 @@ public class AutoCostAnalyzer {
         System.out.println("Number of years for cost comparison?");
         int numYears = keyboard.nextInt();
 
-        System.out.println("Values for first auto purchase:");
+        System.out.println("\nValues for first auto purchase:");
         AutoPurchaseV2 purchase1 = new AutoPurchaseV2();
         readPurchaseInfo(keyboard, purchase1);
 
-        System.out.println("Values for first auto purchase:");
+        System.out.println("\nValues for first auto purchase:");
         AutoPurchaseV2 purchase2 = null;
         purchase2 = createAutoPurchaseObject(keyboard);
 
         purchase1.displayPurchaseInfo();
-        double purchase1Cost = purchase1.computeMultipleYearCost(purchase1.computeMonthlyPayment(), numYears);
+        double purchase1Cost = purchase1.computeMultipleYearCost(12.56, numYears);
         System.out.printf("The %d year cost of ownership is $%.2f\n", numYears, purchase1Cost);
 
         purchase2.displayPurchaseInfo();
@@ -26,16 +26,16 @@ public class AutoCostAnalyzer {
         System.out.printf("The %d year cost of ownership is $%.2f\n", numYears,purchase2Cost);
 
         if (purchase1.isEqualTo(purchase2)) {
-            System.out.println("Same autos with same loan terms, so cannot compare");
+            System.out.println("\nSame autos with same loan terms, so cannot compare\n");
         } else {
             if (purchase1Cost < purchase2Cost) {
-                System.out.printf("%s has a lower %d year cost than %s\n", purchase1.getAutoMakeModel(), numYears,
+                System.out.printf("\n%s has a lower %d year cost than %s\n", purchase1.getAutoMakeModel(), numYears,
                         purchase2.getAutoMakeModel());
             } else if (purchase1Cost > purchase2Cost) {
-                System.out.printf("%s has a lower %d year cost than %s\n", purchase2.getAutoMakeModel(), numYears,
+                System.out.printf("\n%s has a lower %d year cost than %s\n", purchase2.getAutoMakeModel(), numYears,
                         purchase1.getAutoMakeModel());
             } else {
-                System.out.printf("Both autos have the same %d year cost\n", numYears);
+                System.out.printf("\nBoth autos have the same %d year cost\n", numYears);
             }
         }
 
