@@ -18,7 +18,7 @@ public class AutoCostAnalyzer {
         purchase2 = createAutoPurchaseObject(keyboard);
 
         purchase1.displayPurchaseInfo();
-        double purchase1Cost = purchase1.computeMultipleYearCost(12.56, numYears);
+        double purchase1Cost = purchase1.computeMultipleYearCost(purchase1.computeMonthlyPayment(), numYears);
         System.out.printf("The %d year cost of ownership is $%.2f\n", numYears, purchase1Cost);
 
         purchase2.displayPurchaseInfo();
