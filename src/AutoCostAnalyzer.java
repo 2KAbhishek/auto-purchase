@@ -23,15 +23,20 @@ public class AutoCostAnalyzer {
         double purchase2Cost = purchase2.computeMultipleYearCost(purchase2.computeMonthlyPayment(), numYears);
         System.out.printf("The %d year cost of ownership is $%.2f\n", numYears,purchase2Cost);
 
-        if (purchase1Cost < purchase2Cost) {
-            System.out.printf("%s has a lower %d year cost than %s\n", purchase1.getAutoMakeModel(), numYears,
-                    purchase2.getAutoMakeModel());
-        } else if (purchase1Cost > purchase2Cost) {
-            System.out.printf("%s has a lower %d year cost than %s\n", purchase2.getAutoMakeModel(), numYears,
-                    purchase1.getAutoMakeModel());
+        if (purchase1.isEqualTo(purchase2)) {
+            System.out.println("Same autos with same loan terms, so cannot compare");
         } else {
-            System.out.printf("Both autos have the same %d year cost\n", numYears);
+            if (purchase1Cost < purchase2Cost) {
+                System.out.printf("%s has a lower %d year cost than %s\n", purchase1.getAutoMakeModel(), numYears,
+                        purchase2.getAutoMakeModel());
+            } else if (purchase1Cost > purchase2Cost) {
+                System.out.printf("%s has a lower %d year cost than %s\n", purchase2.getAutoMakeModel(), numYears,
+                        purchase1.getAutoMakeModel());
+            } else {
+                System.out.printf("Both autos have the same %d year cost\n", numYears);
+            }
         }
+
     }
 
     public static void readPurchaseInfo(Scanner keyboard, AutoPurchaseV2 purchase) {
