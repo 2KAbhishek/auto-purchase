@@ -108,4 +108,10 @@ class AutoPurchaseV2 {
 
         return totalGasCost + loanPayment;
     }
+
+    public boolean isEqualTo(AutoPurchaseV2 other) {
+        return (this.autoMileage == other.autoMileage) && (this.autoMakeModel.equals(other.autoMakeModel))
+                && (this.purchasePrice == other.purchasePrice) && (this.loanMonths == other.loanMonths)
+                && (this.interestRate == other.interestRate);
+    }
 }
