@@ -9,9 +9,11 @@ public class AutoCostAnalyzer {
         System.out.println("Number of years for cost comparison?");
         int numYears = keyboard.nextInt();
 
+        System.out.println("Values for first auto purchase:");
         AutoPurchaseV2 purchase1 = new AutoPurchaseV2();
         readPurchaseInfo(keyboard, purchase1);
 
+        System.out.println("Values for first auto purchase:");
         AutoPurchaseV2 purchase2 = null;
         purchase2 = createAutoPurchaseObject(keyboard);
 
