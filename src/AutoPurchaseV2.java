@@ -70,6 +70,7 @@ class AutoPurchaseV2 {
         System.out.printf(
                 "%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
                 autoMakeModel, autoMileage, purchasePrice, interestRate, loanMonths);
+        System.out.println("The monthly payment is $" + computeMonthlyPayment());
     }
 
     public double computeMonthlyPayment() {

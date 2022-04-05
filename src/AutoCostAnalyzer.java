@@ -15,12 +15,13 @@ public class AutoCostAnalyzer {
         AutoPurchaseV2 purchase2 = null;
         purchase2 = createAutoPurchaseObject(keyboard);
 
-        System.out.printf(
-                "%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
-                purchase1.getAutoMakeModel(), purchase1.getAutoMileage(), purchase1.getPurchasePrice(),
-                purchase1.getInterestRate(), purchase1.getLoanMonths());
+        purchase1.displayPurchaseInfo();
+        System.out.printf("The %d year cost of ownership is $%.2f\n", numYears,
+                purchase1.computeMultipleYearCost(purchase1.computeMonthlyPayment(), numYears));
 
         purchase2.displayPurchaseInfo();
+        System.out.printf("The %d year cost of ownership is $%.2f\n", numYears,
+                purchase2.computeMultipleYearCost(purchase2.computeMonthlyPayment(), numYears));
     }
 
     public static void readPurchaseInfo(Scanner keyboard, AutoPurchaseV2 purchase) {
