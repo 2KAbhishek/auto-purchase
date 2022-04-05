@@ -1,6 +1,7 @@
 class AutoPurchaseV2 {
     public final static double MIN_PURCHASE_PRICE = 1000.0;
     public final static int MIN_LOAN_MONTHS = 6;
+    public final static int MAX_LOAN_MONTHS = 120;
     public final static double MIN_INTEREST_RATE = 1.0;
 
     private int autoMileage;
@@ -35,10 +36,17 @@ class AutoPurchaseV2 {
     }
 
     public void setPurchasePrice(double purchasePrice) {
+        if (purchasePrice < MIN_PURCHASE_PRICE) {
+            purchasePrice = MIN_PURCHASE_PRICE;
+            System.out.println(
+                    "Entered purchase price value is too low for a loan, so it was set to the minimum allowable value of "
+                            + MIN_PURCHASE_PRICE);
+        }
         this.purchasePrice = purchasePrice;
     }
 
     public void setLoanMonths(int loanMonths) {
+
         this.loanMonths = loanMonths;
     }
 
