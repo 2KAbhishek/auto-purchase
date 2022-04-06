@@ -1,3 +1,8 @@
+/**
+ * @author 2kabhishek
+ * Class to represent an auto purchase
+ */
+
 class AutoPurchaseV2 {
     public final static double MIN_PURCHASE_PRICE = 1000.0;
     public final static int MIN_LOAN_MONTHS = 6;
@@ -27,14 +32,26 @@ class AutoPurchaseV2 {
         setInterestRate(interestRate);
     }
 
+
+    /**
+     * @param autoMileage
+     */
     public void setAutoMileage(int autoMileage) {
         this.autoMileage = autoMileage;
     }
 
+
+    /**
+     * @param autoMakeModel
+     */
     public void setAutoMakeModel(String autoMakeModel) {
         this.autoMakeModel = autoMakeModel;
     }
 
+
+    /**
+     * @param purchasePrice
+     */
     public void setPurchasePrice(double purchasePrice) {
         if (purchasePrice < MIN_PURCHASE_PRICE) {
             purchasePrice = MIN_PURCHASE_PRICE;
@@ -45,6 +62,10 @@ class AutoPurchaseV2 {
         this.purchasePrice = purchasePrice;
     }
 
+
+    /**
+     * @param loanMonths
+     */
     public void setLoanMonths(int loanMonths) {
         if (loanMonths < MIN_LOAN_MONTHS) {
             loanMonths = MIN_LOAN_MONTHS;
@@ -60,30 +81,57 @@ class AutoPurchaseV2 {
         this.loanMonths = loanMonths;
     }
 
+
+    /**
+     * @param interestRate
+     */
     public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
 
+
+    /**
+     * @return int
+     */
     public int getAutoMileage() {
         return autoMileage;
     }
 
+
+    /**
+     * @return String
+     */
     public String getAutoMakeModel() {
         return autoMakeModel;
     }
 
+
+    /**
+     * @return double
+     */
     public double getPurchasePrice() {
         return purchasePrice;
     }
 
+
+    /**
+     * @return int
+     */
     public int getLoanMonths() {
         return loanMonths;
     }
 
+
+    /**
+     * @return double
+     */
     public double getInterestRate() {
         return interestRate;
     }
 
+    /**
+     * Display the purchase information.
+     */
     public void displayPurchaseInfo() {
         System.out.printf(
                 "\n%s gets %d mpg and its purchase price of $%.2f will be financed at %.1f%% APR, to be paid over %d months.\n",
@@ -91,6 +139,11 @@ class AutoPurchaseV2 {
         System.out.printf("The monthly payment is $%.2f", computeMonthlyPayment());
     }
 
+
+    /**
+     * @return double
+     * Compute the monthly payment.
+     */
     public double computeMonthlyPayment() {
         double monthlyInterestRate = (interestRate / 100) / 12;
         double factor = Math.pow(1 + monthlyInterestRate, loanMonths);
@@ -99,6 +152,13 @@ class AutoPurchaseV2 {
         return monthlyPayment;
     }
 
+
+    /**
+     * @param monthlyPayment
+     * @param numYears
+     * @return double
+     * Compute the multi year cost.
+     */
     public double computeMultipleYearCost(double monthlyPayment, int numYears) {
         int milesPerYear = 12000;
         double gasCostPerMile = 3.25;
@@ -111,6 +171,12 @@ class AutoPurchaseV2 {
         return totalGasCost + loanPayment;
     }
 
+
+    /**
+     * @param other
+     * @return boolean
+     * Compare two AutoPurchaseV2 objects.
+     */
     public boolean isEqualTo(AutoPurchaseV2 other) {
         return (this.autoMileage == other.autoMileage) && (this.autoMakeModel.equals(other.autoMakeModel))
                 && (this.purchasePrice == other.purchasePrice) && (this.loanMonths == other.loanMonths)
