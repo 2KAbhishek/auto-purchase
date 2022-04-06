@@ -1,6 +1,15 @@
 import java.util.Scanner;
 
+/**
+ * @author 2kabhishek
+ * Main driver class for the AutoCostAnalyzer application
+ */
 public class AutoCostAnalyzer {
+
+    /**
+     * @param args
+     * Main driver code
+     */
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Multiple year Auto Cost Analyzer");
@@ -41,6 +50,12 @@ public class AutoCostAnalyzer {
 
     }
 
+
+    /**
+     * @param keyboard
+     * @param purchase
+     * Reads in the user input for auto purchase
+     */
     public static void readPurchaseInfo(Scanner keyboard, AutoPurchaseV2 purchase) {
         System.out.println("Gas mileage (miles per gallon)?");
         purchase.setAutoMileage(keyboard.nextInt());
@@ -55,6 +70,12 @@ public class AutoCostAnalyzer {
         purchase.setInterestRate(determineInterestRate(numLoanMonths));
     }
 
+
+    /**
+     * @param keyboard
+     * @return AutoPurchaseV2
+     * Creates an AutoPurchaseV2 object from user input
+     */
     public static AutoPurchaseV2 createAutoPurchaseObject(Scanner keyboard) {
         AutoPurchaseV2 purchaseV2 = null;
 
@@ -73,6 +94,12 @@ public class AutoCostAnalyzer {
         return purchaseV2;
     }
 
+
+    /**
+     * @param numLoanMonths
+     * @return double
+     * Determines the interest rate based on the loan length
+     */
     public static double determineInterestRate(int numLoanMonths) {
         double interestRate = 3.8;
         while (numLoanMonths >= 12) {
