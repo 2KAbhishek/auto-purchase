@@ -26,13 +26,13 @@ public class AutoCostAnalyzer {
         AutoPurchaseV2 purchase2 = null;
         purchase2 = createAutoPurchaseObject(keyboard);
 
-        purchase1.displayPurchaseInfo();
-        double purchase1Cost = purchase1.computeMultipleYearCost(purchase1.computeMonthlyPayment(), numYears);
-        System.out.printf("\nThe %d year cost of ownership is $%.2f\n", numYears, purchase1Cost);
-
         purchase2.displayPurchaseInfo();
         double purchase2Cost = purchase2.computeMultipleYearCost(purchase2.computeMonthlyPayment(), numYears);
         System.out.printf("\nThe %d year cost of ownership is $%.2f\n", numYears,purchase2Cost);
+
+        purchase1.displayPurchaseInfo();
+        double purchase1Cost = purchase1.computeMultipleYearCost(purchase1.computeMonthlyPayment(), numYears);
+        System.out.printf("\nThe %d year cost of ownership is $%.2f\n", numYears, purchase1Cost);
 
         if (purchase1.isEqualTo(purchase2)) {
             System.out.println("\nSame autos with same loan terms, so cannot compare\n");
