@@ -29,7 +29,7 @@
 
 ## What is this
 
-OOPs explained using an auto repair shop.
+OOP explained using an auto repair shop.
 
 ## Prerequisites
 
